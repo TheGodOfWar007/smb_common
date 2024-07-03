@@ -13,4 +13,7 @@
 <!-- Launching the TF nodes -->
 <node name="tf_converter" pkg="team6_stack" type="tf_converter.py" output="screen"/>
 
+<!-- Launching the Waypoint Mux -->
+<node name="waypoint_mux" pkg="team6_stack" type="waypoint_mux.py" output="screen"/>
+
 </launch>

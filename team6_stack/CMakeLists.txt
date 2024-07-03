@@ -170,6 +170,7 @@ catkin_install_python(PROGRAMS
   scripts/object_detection_saver.py
   scripts/tf_listener.py
   scripts/tf_converter.py
+  scripts/waypoint_mux.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

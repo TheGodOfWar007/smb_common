@@ -10,8 +10,9 @@
 <!-- if simulating, the use smb_gazebo instead of smb -->
 <group if="$(arg sim)">
     <include file="$(find smb_gazebo)/launch/sim.launch">
-        <arg name="launch_gazebo_gui" value="true" />
+        <arg name="launch_gazebo_gui" value="false" />
         <arg name="keyboard_teleop" value="$(arg keyboard_teleop)" />
+        <arg name="world" value="planner_tutorial"/>
     </include>
 </group>
 
