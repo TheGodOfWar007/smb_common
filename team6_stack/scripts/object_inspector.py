@@ -96,7 +96,8 @@ class ObjectInspectorNode(object):
 
             # Check if the artefact is already in the list, or is already inspected
             for artefact in self.artefacts:
-                if self.distance(detected_artefact.position, artefact.position) < EPS_:
+                if self.distance(detected_artefact.position, artefact.position) < EPS_ \
+                and detected_artefact.id == artefact.id:
                     already_added = True
                     break
             if already_added:
@@ -114,13 +115,8 @@ class ObjectInspectorNode(object):
         self.inspected_artefacts_pub.publish(inspected_artefacts_msg)
         rospy.loginfo('Inspected artefacts published!')
         
-
     def distance(self, p1: PointStamped, p2: PointStamped) -> float:
-        return np.sqrt(
-            (p1.x - p2.x)**2 + \
-            (p1.y - p2.y)**2 + \
-            (p1.z - p2.z)**2
-        )
+        return np.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2 + (p1.z - p2.z)**2)
 
 def main() -> None:
     try:
