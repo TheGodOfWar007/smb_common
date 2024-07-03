@@ -103,6 +103,7 @@ class ObjectInspectorNode(object):
                 continue
 
             self.artefacts.append(detected_artefact)
+            rospy.loginfo(f'Artefact {detected_artefact.id} added to the list!')
         
     def publish_inspected_artefacts(self) -> None:
         inspected_artefacts_msg = ObjectDetectionInfoArray()

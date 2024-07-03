@@ -149,7 +149,7 @@ def detection_callback(msg):
     detection_info_global_pub.publish(detection_info_global)
 
     # Log
-    rospy.loginfo(detection_info_global)
+    # rospy.loginfo(detection_info_global)
 
 def duplicate_rejection(detections):
     unique_detections = []
