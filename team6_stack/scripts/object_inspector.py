@@ -66,7 +66,7 @@ class ObjectInspectorNode(object):
         self.artefacts = []                 # list of artefacts detected
         self.is_inspecting = False          #
 
-        self.home_reached_sub = rospy.Subscriber('reached_home', Bool, self.home_reached_callback)
+        # self.home_reached_sub = rospy.Subscriber('reached_home', Bool, self.home_reached_callback)
         self.detected_artefacts_sub = rospy.Subscriber('object_detector/detection_info_global', ObjectDetectionInfoArray, self.detected_artefacts_callback)
         self.inspected_artefacts_pub = rospy.Publisher('object_inspector/unique_artifacts', ObjectDetectionInfoArray, queue_size=1)
         self.waypoint_pub = rospy.Publisher('way_point', PointStamped, queue_size=1)
@@ -104,6 +104,9 @@ class ObjectInspectorNode(object):
 
             self.artefacts.append(detected_artefact)
             rospy.loginfo(f'Artefact {detected_artefact.id} added to the list!')
+            inspected_artefacts_msg = ObjectDetectionInfoArray()
+            inspected_artefacts_msg.info = [detected_artefact]
+            self.inspected_artefacts_pub.publish(inspected_artefacts_msg)
         
     def publish_inspected_artefacts(self) -> None:
         inspected_artefacts_msg = ObjectDetectionInfoArray()

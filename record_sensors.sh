@@ -27,4 +27,6 @@ rosbag record --output-name=${outpath}/${now}"_smb" \
 /tf \
 /tf_static \
 /clock \
-/object_detector/detection_info
+/object_detector/detection_info \
+/object_inspector/unique_artifacts \
+/reached_home
