@@ -113,9 +113,9 @@ class ObjectInspectorNode(object):
 
     def distance(self, p1: PointStamped, p2: PointStamped) -> float:
         return np.sqrt(
-            (p1.point.x - p2.point.x)**2 + \
-            (p1.point.y - p2.point.y)**2 + \
-            (p1.point.z - p2.point.z)**2
+            (p1.x - p2.x)**2 + \
+            (p1.y - p2.y)**2 + \
+            (p1.z - p2.z)**2
         )
 
 def main() -> None:
