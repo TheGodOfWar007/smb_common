@@ -31,7 +31,7 @@ class WaypointMux:
         # Flag to decide which waypoints to forward
         self.use_exploration = True
         self.exploration_timeout_triggered = False
-        self.exploration_timeout = 20 # in seconds
+        self.exploration_timeout = 200 # in seconds
         
         # Timer to check the conditions periodically
         self.exploration_timeout_timer = rospy.Timer(rospy.Duration(nsecs=int(0.1*1e9)), self.exploration_timeout_timer_callback) # 10 Hz Timer for condition checks
@@ -73,8 +73,11 @@ class WaypointMux:
     def publish_waypoint(self):
         if self.use_exploration and self.exploration_waypoint is not None:
             self.waypoint_pub.publish(self.exploration_waypoint)
+            rospy.loginfo("MUX CONNECTED TO EXPLORATION")
         elif not self.use_exploration and self.far_planner_waypoint is not None:
             self.waypoint_pub.publish(self.far_planner_waypoint)
+            rospy.loginfo("MUX CONNECTED TO FAR PLANNER")
+
     
 if __name__ == '__main__':
     try:

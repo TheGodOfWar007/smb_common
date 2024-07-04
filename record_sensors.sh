@@ -29,4 +29,9 @@ rosbag record --output-name=${outpath}/${now}"_smb" \
 /clock \
 /object_detector/detection_info \
 /object_inspector/unique_artifacts \
-/reached_home
+/reached_home \
+/exploration/way_point \
+/far_planner/way_point \
+/way_point
+
+

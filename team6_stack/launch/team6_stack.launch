@@ -5,7 +5,7 @@
 <arg name="launch_gazebo_gui" default="true"/>
 <arg name="keyboard_teleop" default="false"/>
 
-<arg name="launch_far_planner" default="false"/>
+<arg name="launch_far_planner" default="true"/>
 
 <!-- if simulating, the use smb_gazebo instead of smb -->
 <group if="$(arg sim)">
