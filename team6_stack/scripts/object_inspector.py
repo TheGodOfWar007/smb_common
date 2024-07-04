@@ -97,7 +97,7 @@ class ObjectInspectorNode(object):
             # Check if the artefact is already in the list, or is already inspected
             for artefact in self.artefacts:
                 if self.distance(detected_artefact.position, artefact.position) < EPS_ \
-                and detected_artefact.id == artefact.id:
+                and detected_artefact.class_id == artefact.class_id:
                     already_added = True
                     break
             if already_added:
