@@ -73,10 +73,10 @@ class WaypointMux:
     def publish_waypoint(self):
         if self.use_exploration and self.exploration_waypoint is not None:
             self.waypoint_pub.publish(self.exploration_waypoint)
-            rospy.loginfo("MUX CONNECTED TO EXPLORATION")
+            rospy.loginfo(f"MUX CONNECTED TO EXPLORATION, TIME ELAPSED: {self.time_elapsed_since_start/60}")
         elif not self.use_exploration and self.far_planner_waypoint is not None:
             self.waypoint_pub.publish(self.far_planner_waypoint)
-            rospy.loginfo("MUX CONNECTED TO FAR PLANNER")
+            rospy.loginfo(f"MUX CONNECTED TO FAR PLANNER, TIME ELAPSED: {self.time_elapsed_since_start/60}")
 
     
 if __name__ == '__main__':
