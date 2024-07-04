@@ -31,7 +31,7 @@ class WaypointMux:
         # Flag to decide which waypoints to forward
         self.use_exploration = True
         self.exploration_timeout_triggered = False
-        self.exploration_timeout = 200 # in seconds
+        self.exploration_timeout = 20*60 # in seconds
         
         # Timer to check the conditions periodically
         self.exploration_timeout_timer = rospy.Timer(rospy.Duration(nsecs=int(0.1*1e9)), self.exploration_timeout_timer_callback) # 10 Hz Timer for condition checks
